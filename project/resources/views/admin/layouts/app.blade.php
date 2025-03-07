@@ -25,9 +25,9 @@
         <h4>Dashboard</h4>
         <a href="">📈 Statistics</a>
         <a href="{{route('society.dashboard.offer')}}">📦 Offers</a>
-        <a href="">👥 Clients</a>
+        <a href="{{route('role.index')}}">📦 Roles</a>
+        <a href="{{route('user.index')}}">👥 Users</a>
         <a href="">📅 Reservations</a>
-        
     </nav>
 
     <!-- Main Content -->

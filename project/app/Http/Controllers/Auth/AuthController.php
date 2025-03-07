@@ -26,25 +26,9 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role_id' => $request->role_id,
+            'role_id' => 4,
            
          ]);
-    
-
-         if ($request->role_id == 2) {
-            Client::create([
-                'user_id' => $user->id,
-            ]);
-        }
-       
-        if ($request->role_id == 3) {
-            Society::create([
-                'user_id' => $user->id,
-                'company_name' => $request->company_name,  // تأكد من أن الحقول موجودة
-                'address' => $request->address,
-                'description' => $request->description,
-            ]);
-        }
         Auth::login($user);
         return redirect()->route('home');
     }
@@ -56,14 +40,16 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            
-            return redirect()->route('home');
+    
+        if (!Auth::attempt($credentials)) {
+            return back()->withErrors([
+                'password' => "Le mot de passe est incorrect.",
+            ]);
         }
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+    
+        return redirect()->route('home');
     }
+    
     public function logout()
     {
         Auth::logout();

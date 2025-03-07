@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link" href="{{ route('offers.index') }}">
                         <i class="fas fa-tag me-1"></i> Offres
                     </a>
                 </li>
@@ -37,9 +37,9 @@
                             <i class="fas fa-user-circle me-1"></i> {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="navbarDropdown">
-                                 @if(Auth::user()->role_id == 3)
+                                 @if(Auth::user()->role_id == 3 || Auth::user()->role_id == 1)
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('society.dashboard') }}">
+                                        <a class="dropdown-item" href="{{ route(Auth::user()->role->name . '.dashboard') }}">
                                             <i class="fas fa-tachometer-alt me-2"></i> Dashboard
                                         </a>
                                     </li>

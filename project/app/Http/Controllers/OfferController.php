@@ -8,24 +8,13 @@ use App\Http\Requests\UpdateofferRequest;
 
 class OfferController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
 
-    // public function index()
-    // {
-    //     $offers = offer::all();
-    //     return view('offers.index', compact('offers'));
-    // }
+    public function index()
+    {
+        $offers = offer::where('status', 'active')->paginate(6);
+        return view('offers.index', compact('offers'));
+    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-  
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreofferRequest $request)
     {
         $user = Auth::user();
@@ -42,33 +31,13 @@ class OfferController extends Controller
         return redirect()->route('society.dashboard.offer');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(offer $offer)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(offer $offer)
-    {
-        
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateofferRequest $request, offer $offer)
     {
-        //
+        $validated = $request->validated();
+       $offer->update($validated);
+        return redirect()->route('society.dashboard.offer');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy($id)
     {
         $offer = Offer::findOrFail($id);

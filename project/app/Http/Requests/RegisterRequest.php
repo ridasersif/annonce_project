@@ -24,11 +24,11 @@ class RegisterRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|max:255',
-            'password' => 'required|string|min:8|confirmed',
-            'role_id' => 'required|exists:roles,id',  
-            'company_name' => 'required_if:role_id,2|string|max:255',
-            'address' => 'required_if:role_id,2|string|max:255',
-            'description' => 'required_if:role_id,2|string|max:1000',
+            'password' => 'required|string|min:3',
+            // 'role_id' => 'required|exists:roles,id',  
+            // 'company_name' => 'required_if:role_id,2|string|max:255',
+            // 'address' => 'required_if:role_id,2|string|max:255',
+            // 'description' => 'required_if:role_id,2|string|max:1000',
         ];
     }
 }

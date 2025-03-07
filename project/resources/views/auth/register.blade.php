@@ -58,7 +58,7 @@
                         </div>
 
                         <!-- Role Selection -->
-                        <div class="mb-4">
+                        {{-- <div class="mb-4">
                             <label for="role" class="form-label fw-bold">{{ __('I am a') }}</label>
                             <div class="d-flex gap-4">
                                 @foreach($roles as $role)
@@ -76,9 +76,9 @@
                                 <span class="text-danger small mt-1">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+                         --}}
                         <!-- Company Information (Society Only) -->
-                        <div id="society-info" class="society-fields bg-light p-3 rounded mb-4" style="display:none;">
+                        {{-- <div id="society-info" class="society-fields bg-light p-3 rounded mb-4" style="display:none;">
                             <h5 class="mb-3 border-bottom pb-2">Company Information</h5>
                             <div class="mb-3">
                                 <label for="company_name" class="form-label fw-bold">{{ __('Company Name') }}</label>
@@ -103,7 +103,7 @@
                                     <textarea id="description" class="form-control" name="description" rows="3" placeholder="Brief description of your company"></textarea>
                                 </div>
                             </div>
-                       </div>
+                       </div> --}}
 
                         <!-- Submit Button -->
                         <div class="mb-0 d-grid gap-2">

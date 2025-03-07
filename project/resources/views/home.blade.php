@@ -10,23 +10,20 @@
                 <h1 class="display-4 fw-bold mb-4">Découvrez le monde avec <span class="text-primary">Voyage Express</span></h1>
                 <p class="lead mb-4">Explorez des destinations exceptionnelles et créez des souvenirs inoubliables avec nos offres de voyage personnalisées.</p>
                 <div class="d-flex gap-3">
+                    @if (!Auth::check())
                     <a href="{{ route('register') }}" class="btn btn-primary btn-lg px-4">
                         <i class="fas fa-user-plus me-2"></i> Créer un compte
                     </a>
-                    <a href="{{ url('/offers') }}" class="btn btn-outline-primary btn-lg px-4">
+                    @endif
+                    
+                    <a href="{{ route('offers.index') }}" class="btn btn-outline-primary btn-lg px-4">
                         <i class="fas fa-search me-2"></i> Voir les offres
                     </a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
-                    <img src="/api/placeholder/800/500" alt="Voyages" class="img-fluid">
-                    <div class="card-img-overlay d-flex align-items-end">
-                        <div class="bg-white bg-opacity-75 p-3 rounded-3 w-100">
-                            <h3 class="h5 mb-2">Offres spéciales</h3>
-                            <p class="mb-0 small">Jusqu'à 30% de réduction sur les destinations sélectionnées</p>
-                        </div>
-                    </div>
+                    <img src="{{ asset('images/image.png') }}" alt="Voya" class="img-fluid">
                 </div>
             </div>
         </div>

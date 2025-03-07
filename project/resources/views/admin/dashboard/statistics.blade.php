@@ -1,7 +1,9 @@
 <!-- resources/views/dashboard/index.blade.php -->
-@extends('society.layouts.app')
+@extends('layouts.app')
+
 @section('content')
     <h2>Welcome to Society Dashboard</h2>
+
     <!-- Statistics -->
     <div class="row">
         <div class="col-md-3">
@@ -37,5 +39,4 @@
             </div>
         </div>
     </div>
-    <hr>
 @endsection
